@@ -1,0 +1,67 @@
+table DimCustomers
+	lineageTag: c79ece1b-9ae8-404e-b55c-f05d3c95367f
+
+	column CustomerID
+		dataType: int64
+		formatString: 0
+		lineageTag: 4803ebc6-67e6-4feb-aa7c-16cb035d3715
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column FullName
+		dataType: string
+		lineageTag: e2568d7b-5932-45bb-83e8-3d55ec9bc424
+		summarizeBy: none
+		sourceColumn: FullName
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateOfBirth
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5f7fecad-177a-4966-bd49-19725f69509f
+		summarizeBy: none
+		sourceColumn: DateOfBirth
+
+		variation Variation
+			isDefault
+			relationship: 40a0ae05-1161-4821-8f33-b6634707b0f6
+			defaultHierarchy: LocalDateTable_94a3637b-8d63-47b7-bc90-c18238b254bc.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column State
+		dataType: string
+		lineageTag: 5ba85e1c-b3cb-43f4-8047-eb07746f2876
+		dataCategory: StateOrProvince
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreditScore
+		dataType: int64
+		formatString: 0
+		lineageTag: e2b8fb59-73c1-474d-bc8c-b4b8456d4573
+		summarizeBy: sum
+		sourceColumn: CreditScore
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCustomers = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("lavi-sql-server-2026.database.windows.net", "free-sql-db-2644020"),
+				    dbo_DimCustomers = Source{[Schema="dbo",Item="DimCustomers"]}[Data]
+				in
+				    dbo_DimCustomers
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

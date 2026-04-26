@@ -1,0 +1,315 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "fc55d8f74196bbd00b8e",
+  "position": {
+    "x": 1088,
+    "y": 144,
+    "z": 11000,
+    "height": 512,
+    "width": 400,
+    "tabOrder": 11000
+  },
+  "visual": {
+    "visualType": "decompositionTreeVisual",
+    "query": {
+      "queryState": {
+        "Analyze": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactClaims"
+                    }
+                  },
+                  "Property": "Total Profit"
+                }
+              },
+              "queryRef": "FactClaims.Total Profit",
+              "nativeQueryRef": "Total Profit"
+            }
+          ]
+        },
+        "ExplainBy": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCustomers"
+                    }
+                  },
+                  "Property": "FullName"
+                }
+              },
+              "queryRef": "DimCustomers.FullName",
+              "nativeQueryRef": "FullName",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCustomers"
+                    }
+                  },
+                  "Property": "State"
+                }
+              },
+              "queryRef": "DimCustomers.State",
+              "nativeQueryRef": "State",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimPolicies"
+                    }
+                  },
+                  "Property": "PolicyType"
+                }
+              },
+              "queryRef": "DimPolicies.PolicyType",
+              "nativeQueryRef": "PolicyType",
+              "active": false
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FactClaims"
+                  }
+                },
+                "Property": "Total Profit"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "ExplainBy"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "DimCustomers.FullName"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCustomers"
+                    }
+                  },
+                  "Property": "FullName"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "DimCustomers.State"
+            ],
+            "isCollapsed": true
+          },
+          {
+            "queryRefs": [
+              "DimPolicies.PolicyType"
+            ],
+            "isCollapsed": true
+          }
+        ],
+        "root": {}
+      }
+    ],
+    "objects": {
+      "tree": [
+        {
+          "properties": {
+            "effectiveBarsPerLevel": {
+              "expr": {
+                "Literal": {
+                  "Value": "6L"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "analysis": [
+        {
+          "properties": {
+            "aiMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'absolute'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataBars": [
+        {
+          "properties": {
+            "dataBarScalingType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'levelMaximum'"
+                }
+              }
+            },
+            "dataBarWidthPercent": {
+              "expr": {
+                "Literal": {
+                  "Value": "62L"
+                }
+              }
+            },
+            "axisStart": {
+              "expr": {
+                "Literal": {
+                  "Value": "-1D"
+                }
+              }
+            },
+            "axisEnd": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "negativeBarColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#910D1A'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryLabels": [
+        {
+          "properties": {
+            "categoryLabelFontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "insights": [
+        {
+          "properties": {
+            "isAINode": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DimCustomers"
+                          }
+                        },
+                        "Property": "FullName"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Michael Chen'"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DimCustomers"
+                          }
+                        },
+                        "Property": "State"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'TX'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

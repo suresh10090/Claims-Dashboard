@@ -1,0 +1,56 @@
+table DimPolicies
+	lineageTag: 3acffc19-a989-4ccc-bf18-0a5b8966d95a
+
+	measure 'Total Revenue(Premium)' = SUM(DimPolicies[PremiumAmount])
+		lineageTag: cc5cf537-9008-4f75-bd78-02d0a361f24f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PolicyID
+		dataType: int64
+		formatString: 0
+		lineageTag: 4e579e8d-403c-4ef4-a136-8b16416530ee
+		summarizeBy: none
+		sourceColumn: PolicyID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PolicyType
+		dataType: string
+		lineageTag: a9b04784-f0ae-45b7-9533-87fee5192859
+		summarizeBy: none
+		sourceColumn: PolicyType
+
+		annotation SummarizationSetBy = Automatic
+
+	column PremiumAmount
+		dataType: double
+		lineageTag: 7e224e9c-4d27-4fd7-ad8e-7fb445d61c16
+		summarizeBy: none
+		sourceColumn: PremiumAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CoverageLimit
+		dataType: double
+		lineageTag: 86233c0d-3242-4457-8e5d-f337da7398e0
+		summarizeBy: none
+		sourceColumn: CoverageLimit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition DimPolicies = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("lavi-sql-server-2026.database.windows.net", "free-sql-db-2644020"),
+				    dbo_DimPolicies = Source{[Schema="dbo",Item="DimPolicies"]}[Data]
+				in
+				    dbo_DimPolicies
+
+	annotation PBI_ResultType = Table
+

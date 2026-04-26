@@ -1,0 +1,185 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "d10a595bc36886ec61e8",
+  "position": {
+    "x": 368,
+    "y": 146,
+    "z": 3000,
+    "height": 250,
+    "width": 350,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "azureMap",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCustomers"
+                    }
+                  },
+                  "Property": "State"
+                }
+              },
+              "queryRef": "DimCustomers.State",
+              "nativeQueryRef": "State",
+              "active": true
+            }
+          ]
+        },
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "FactClaims"
+                        }
+                      },
+                      "Property": "ClaimAmount"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(FactClaims.ClaimAmount)",
+              "nativeQueryRef": "Sum of ClaimAmount"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "mapControls": [
+        {
+          "properties": {
+            "defaultStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "'road'"
+                }
+              }
+            },
+            "showStylePicker": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "showNavigationControls": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "showSelectionControl": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "zoom": {
+              "expr": {
+                "Literal": {
+                  "Value": "2.12D"
+                }
+              }
+            },
+            "centerLatitude": {
+              "expr": {
+                "Literal": {
+                  "Value": "36.093514689478454D"
+                }
+              }
+            },
+            "centerLongitude": {
+              "expr": {
+                "Literal": {
+                  "Value": "-97.6186637878418D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "commonDataOptions": [
+        {
+          "properties": {
+            "unselectedTransparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "74D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "bubbleLayer": [
+        {
+          "properties": {
+            "fillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 5,
+                      "Percent": 0.2
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

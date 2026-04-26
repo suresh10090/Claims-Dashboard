@@ -1,0 +1,89 @@
+table FactClaims
+	lineageTag: 411e1060-185f-44e0-a6ee-e3f2a170e411
+
+	measure 'Total ClaimAmount' = SUM(FactClaims[ClaimAmount])
+		lineageTag: 230ea996-9612-4a94-b6f0-08706e60888d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Profit' = [Total Revenue(Premium)]-[Total ClaimAmount]
+		lineageTag: 7e719b22-401e-4043-a283-ddfc8233de89
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Loss Ration %' = DIVIDE([Total ClaimAmount],[Total Revenue(Premium)])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2211c8a3-5fbb-4723-8735-32daec0df832
+
+	column ClaimID
+		dataType: int64
+		formatString: 0
+		lineageTag: 766692e6-5bb8-4e03-8d5a-746497e16aa1
+		summarizeBy: count
+		sourceColumn: ClaimID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerID
+		dataType: int64
+		formatString: 0
+		lineageTag: c8123dd0-188f-4e74-a596-dac72d8e805a
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PolicyID
+		dataType: int64
+		formatString: 0
+		lineageTag: 39270115-2dd2-4fbb-8fe1-86076e17130a
+		summarizeBy: none
+		sourceColumn: PolicyID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClaimDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b0ff0696-471d-423c-8d97-a6a7767c72e3
+		summarizeBy: none
+		sourceColumn: ClaimDate
+
+		variation Variation
+			isDefault
+			relationship: 2a329f11-e28c-4001-b978-7411407a6cf7
+			defaultHierarchy: LocalDateTable_99929c5a-98b7-48bb-a4f0-1e7ede71e980.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ClaimAmount
+		dataType: double
+		lineageTag: 938d7c40-08e9-4bce-a435-2051da2eca39
+		summarizeBy: sum
+		sourceColumn: ClaimAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ClaimStatus
+		dataType: string
+		lineageTag: c7c1e0a9-fb13-4892-98b8-71d25c042c42
+		summarizeBy: none
+		sourceColumn: ClaimStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactClaims = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("lavi-sql-server-2026.database.windows.net", "free-sql-db-2644020"),
+				    dbo_FactClaims = Source{[Schema="dbo",Item="FactClaims"]}[Data]
+				in
+				    dbo_FactClaims
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,22 @@
+relationship 40a0ae05-1161-4821-8f33-b6634707b0f6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimCustomers.DateOfBirth
+	toColumn: LocalDateTable_94a3637b-8d63-47b7-bc90-c18238b254bc.Date
+
+relationship 2a329f11-e28c-4001-b978-7411407a6cf7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactClaims.ClaimDate
+	toColumn: LocalDateTable_99929c5a-98b7-48bb-a4f0-1e7ede71e980.Date
+
+relationship 3a5a4ec1-b3f2-4769-b426-cbc7002abbd2
+	fromColumn: FactClaims.PolicyID
+	toColumn: DimPolicies.PolicyID
+
+	annotation PBI_IsFromSource = FS
+
+relationship 73405089-65ce-9250-7c54-19298bc74239
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: DimCustomers.CustomerID
+	toColumn: FactClaims.CustomerID
+
