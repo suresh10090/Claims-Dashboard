@@ -8,7 +8,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["DimCustomers","DimPolicies","FactClaims"]
+annotation PBI_QueryOrder = ["DimCustomers","DimPolicies","FactClaims","DimBroker"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
@@ -18,6 +18,9 @@ ref table LocalDateTable_94a3637b-8d63-47b7-bc90-c18238b254bc
 ref table DimPolicies
 ref table FactClaims
 ref table LocalDateTable_99929c5a-98b7-48bb-a4f0-1e7ede71e980
+ref table DimBroker
+
+ref role 'NY role'
 
 ref cultureInfo en-US
 

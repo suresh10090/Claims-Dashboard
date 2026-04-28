@@ -76,6 +76,14 @@ table FactClaims
 
 		annotation SummarizationSetBy = Automatic
 
+	column BrokerID
+		dataType: string
+		lineageTag: 15aa65d8-989d-4fc5-8655-2be5c768f7a1
+		summarizeBy: none
+		sourceColumn: BrokerID
+
+		annotation SummarizationSetBy = Automatic
+
 	partition FactClaims = m
 		mode: import
 		source =

@@ -1,120 +1,100 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "344abf11068e755ed71d",
+  "name": "1d6932b72a765d7e0c45",
   "position": {
-    "x": 992,
+    "x": 707.25,
     "y": 57,
-    "z": 12000,
-    "height": 80,
-    "width": 192,
-    "tabOrder": 12000
+    "z": 7000,
+    "height": 80.000000000000014,
+    "width": 288,
+    "tabOrder": 7000
   },
   "visual": {
-    "visualType": "actionButton",
-    "objects": {
-      "icon": [
-        {
-          "properties": {
-            "shapeType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'clearAllSlicers'"
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactClaims"
+                    }
+                  },
+                  "Property": "ClaimStatus"
                 }
-              }
+              },
+              "queryRef": "FactClaims.ClaimStatus",
+              "nativeQueryRef": "ClaimStatus",
+              "active": true
             }
-          },
-          "selector": {
-            "id": "default"
-          }
-        },
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
         {
           "properties": {
-            "show": {
+            "mode": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "'Basic'"
                 }
               }
             }
           }
         }
       ],
-      "text": [
+      "general": [
         {
           "properties": {
-            "show": {
+            "orientation": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "1D"
+                }
+              }
+            },
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
                 }
               }
             }
           }
-        },
+        }
+      ],
+      "items": [
         {
           "properties": {
-            "text": {
+            "textSize": {
               "expr": {
                 "Literal": {
-                  "Value": "'Clear all slicers'"
+                  "Value": "8D"
                 }
               }
             },
-            "horizontalAlignment": {
+            "padding": {
               "expr": {
                 "Literal": {
-                  "Value": "'center'"
+                  "Value": "0D"
                 }
               }
             }
-          },
-          "selector": {
-            "id": "default"
           }
         }
       ]
     },
     "visualContainerObjects": {
-      "visualLink": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "type": {
-              "expr": {
-                "Literal": {
-                  "Value": "'ClearAllSlicers'"
-                }
-              }
-            },
-            "tooltipPlaceholderText": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Clear all slicers on this page'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "background": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
       "border": [
         {
           "properties": {
@@ -134,9 +114,48 @@
             }
           }
         }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13D"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Claim Status'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "howCreated": "InsertVisualButton"
+  }
 }

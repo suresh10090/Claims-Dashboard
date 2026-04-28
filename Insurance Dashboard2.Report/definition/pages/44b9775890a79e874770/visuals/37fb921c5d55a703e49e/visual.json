@@ -1,120 +1,120 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "344abf11068e755ed71d",
+  "name": "37fb921c5d55a703e49e",
   "position": {
-    "x": 992,
+    "x": 1008,
     "y": 57,
-    "z": 12000,
+    "z": 12001,
     "height": 80,
-    "width": 192,
-    "tabOrder": 12000
+    "width": 288,
+    "tabOrder": 12001
   },
   "visual": {
-    "visualType": "actionButton",
-    "objects": {
-      "icon": [
-        {
-          "properties": {
-            "shapeType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'clearAllSlicers'"
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimBroker"
+                    }
+                  },
+                  "Property": "BrokerName"
                 }
-              }
+              },
+              "queryRef": "DimBroker.BrokerName",
+              "nativeQueryRef": "BrokerName",
+              "active": true
             }
-          },
-          "selector": {
-            "id": "default"
-          }
-        },
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
         {
           "properties": {
-            "show": {
+            "mode": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "'Dropdown'"
                 }
               }
             }
           }
         }
       ],
-      "text": [
+      "general": [
         {
           "properties": {
-            "show": {
+            "orientation": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "1D"
+                }
+              }
+            },
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
                 }
               }
             }
           }
-        },
+        }
+      ],
+      "items": [
+        {
+          "properties": {
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "padding": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "header": [
         {
           "properties": {
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Clear all slicers'"
+                  "Value": "'Broker Name'"
                 }
               }
             },
-            "horizontalAlignment": {
+            "textSize": {
               "expr": {
                 "Literal": {
-                  "Value": "'center'"
+                  "Value": "13D"
                 }
               }
             }
-          },
-          "selector": {
-            "id": "default"
           }
         }
       ]
     },
     "visualContainerObjects": {
-      "visualLink": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "type": {
-              "expr": {
-                "Literal": {
-                  "Value": "'ClearAllSlicers'"
-                }
-              }
-            },
-            "tooltipPlaceholderText": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Clear all slicers on this page'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "background": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
       "border": [
         {
           "properties": {
@@ -134,9 +134,48 @@
             }
           }
         }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "13D"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "''"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "howCreated": "InsertVisualButton"
+  }
 }

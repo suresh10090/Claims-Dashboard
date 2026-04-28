@@ -1,0 +1,11 @@
+role 'NY role'
+	modelPermission: read
+
+	tablePermission FactClaims = RELATED('DimCustomers'[State]) = "NY"
+
+	tablePermission DimCustomers
+
+	tablePermission DimPolicies
+
+	annotation PBI_Id = 5cdf81b78d0c433d90c282d924d352a6
+
