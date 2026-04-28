@@ -1,0 +1,15 @@
+{
+	"name": "Lavi103",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Enabled",
+			"editable": true
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "c6dab159-d074-4d63-aa09-b8f583f7531b",
+		"tenantId": "48e40575-d4d0-4f3d-9169-bcba5350e480"
+	}
+}

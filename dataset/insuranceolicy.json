@@ -1,0 +1,39 @@
+{
+	"name": "insuranceolicy",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "insurancepolicyexcellinked",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Sheet1",
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "DimPolicies.xlsx",
+				"fileSystem": "sourceexcel"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "PolicyID",
+				"type": "String"
+			},
+			{
+				"name": "PolicyType",
+				"type": "String"
+			},
+			{
+				"name": "PremiumAmount",
+				"type": "String"
+			},
+			{
+				"name": "CoverageLimit",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
