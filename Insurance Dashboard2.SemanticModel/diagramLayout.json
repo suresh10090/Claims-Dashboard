@@ -46,6 +46,19 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 817,
+            "y": 0
+          },
+          "nodeIndex": "DimBroker",
+          "nodeLineageTag": "56174625-1c01-4822-8a5a-f9c1eaec0f72",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",

@@ -1,0 +1,75 @@
+table DimBroker
+	lineageTag: 56174625-1c01-4822-8a5a-f9c1eaec0f72
+
+	measure 'Company Average Loss Ratio' = CALCULATE([Loss Ration %],all(DimBroker))
+		lineageTag: c323eb6e-38a3-4aa3-a9c9-f910b4b89092
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column BrokerID
+		dataType: string
+		lineageTag: 35e1be97-b9a3-411c-8310-8a9a66c2e2b1
+		summarizeBy: none
+		sourceColumn: BrokerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column BrokerName
+		dataType: string
+		lineageTag: c3062482-cc9b-40fe-9531-6d2034fdc1ca
+		summarizeBy: none
+		sourceColumn: BrokerName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tier
+		dataType: string
+		lineageTag: 62830c46-529a-4cad-a04c-5c47e7fd0439
+		summarizeBy: none
+		sourceColumn: Tier
+
+		annotation SummarizationSetBy = Automatic
+
+	column Specialization
+		dataType: string
+		lineageTag: 2f612be1-2539-4428-97ee-90b8384105e1
+		summarizeBy: none
+		sourceColumn: Specialization
+
+		annotation SummarizationSetBy = Automatic
+
+	column CommissionRate
+		dataType: double
+		lineageTag: e58cf0c0-ea99-4f02-8734-4b253866cce3
+		summarizeBy: none
+		sourceColumn: CommissionRate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Region
+		dataType: string
+		lineageTag: 5a201ac9-40d3-4994-bcdb-0798a4e0eb34
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContactEmail
+		dataType: string
+		lineageTag: a61dc7c8-21b4-4e54-9e16-79c7ed144f7f
+		summarizeBy: none
+		sourceColumn: ContactEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimBroker = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("lavi-sql-server-2026.database.windows.net", "free-sql-db-2644020"),
+				    dbo_DimBroker = Source{[Schema="dbo",Item="DimBroker"]}[Data]
+				in
+				    dbo_DimBroker
+

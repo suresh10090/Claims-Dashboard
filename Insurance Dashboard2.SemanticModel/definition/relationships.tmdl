@@ -14,9 +14,11 @@ relationship 3a5a4ec1-b3f2-4769-b426-cbc7002abbd2
 
 	annotation PBI_IsFromSource = FS
 
-relationship 73405089-65ce-9250-7c54-19298bc74239
-	crossFilteringBehavior: bothDirections
-	fromCardinality: one
-	fromColumn: DimCustomers.CustomerID
-	toColumn: FactClaims.CustomerID
+relationship 9bdfd633-ba81-84d3-534a-c90f91523fa3
+	fromColumn: FactClaims.CustomerID
+	toColumn: DimCustomers.CustomerID
+
+relationship 82ff5900-203a-68ed-21c1-17b8a56798bb
+	fromColumn: FactClaims.BrokerID
+	toColumn: DimBroker.BrokerID
 
